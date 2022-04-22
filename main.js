@@ -1,4 +1,4 @@
-function operation(x, firstTerm, secondTerm) {
+function operate(x, firstTerm, secondTerm) {
   switch (x) {
     case "subtract":
       x = firstTerm-secondTerm;

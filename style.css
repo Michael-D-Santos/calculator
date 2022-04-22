@@ -1,0 +1,26 @@
+.zero {
+  grid-area: zero;
+}
+
+.main-area {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.numbers {
+  grid-template-columns: repeat(3, 1fr) !important;
+  grid-template-areas: 
+    "seven eight nine"
+    "four five six"
+    "one two three"
+    "zero zero zero";
+}
+
+.operations {
+  width: 20%;
+}
+
+.numbers,
+.operations {
+  display: grid;
+}
