@@ -51,8 +51,8 @@ window.addEventListener("DOMContentLoaded", () => {
        if ((/[.]$/.test(display.textContent)) == true) {
          point.disabled = "disabled";
        }
-       if ((/(\+|x|-)[.]/.test(display.textContent)) == true) {
-        let position = (/(\+|x|-)[.]/.exec(display.textContent).index) + 1;
+       if ((/(\+|x|÷|-)[.]/.test(display.textContent)) == true) {
+        let position = (/(\+|x|÷|-)[.]/.exec(display.textContent).index) + 1;
         display.innerHTML = `<p>${[display.textContent.slice(0, position), "0",
         display.textContent.slice(-1)].join("")}`;
       }
@@ -93,3 +93,24 @@ window.addEventListener("DOMContentLoaded", () => {
     })
   })
 })
+
+evaluate.addEventListener("click", () => {
+  if (display.textContent.match(/(\+|x|÷|-)/)[0] == "+") {
+    let augend = display.textContent.match(/[^(+|x|÷|\-)]*/)[0];
+    let addend = display.textContent.match(/(-|\+|÷|x)(.*)/)[2];
+    display.innerHTML = `<p>${parseFloat(augend) + parseFloat(addend)}</p>`;
+  } else if (display.textContent.match(/(\+|x|÷|-)/)[0] == "x") {
+    let multiplier = display.textContent.match(/[^(+|x|÷|\-)]*/)[0];
+    let multiplicand = display.textContent.match(/(-|\+|÷|x)(.*)/)[2];
+    display.innerHTML = `<p>${parseFloat(multiplier) * 
+      parseFloat(multiplicand)}</p>`;
+  } else if (display.textContent.match(/(\+|x|÷|-)/)[0] == "-") {
+    let minuend = display.textContent.match(/[^(+|x|÷|\-)]*/)[0];
+    let subtrahend = display.textContent.match(/(-|\+|÷|x)(.*)/)[2];
+    display.innerHTML = `<p>${parseFloat(minuend) - parseFloat(subtrahend)}</p>`;
+  } else if (display.textContent.match(/(\+|x|÷|-)/)[0] == "÷") {
+    let dividend = display.textContent.match(/[^(+|x|÷|\-)]*/)[0];
+    let divisor = display.textContent.match(/(-|\+|÷|x)(.*)/)[2];
+    display.innerHTML = `<p>${parseFloat(dividend)/parseFloat(divisor)}</p>`
+  }
+});
