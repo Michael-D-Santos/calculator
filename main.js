@@ -27,6 +27,8 @@ function operate(x, firstTerm, secondTerm) {
 
 let digit = document.querySelectorAll(".digit");
 let display = document.querySelector(".screen");
+let button = document.querySelector(".button");
+let point = document.querySelector(".point.digit");
 
 window.addEventListener("DOMContentLoaded", () => {
   digit.forEach(button => {
@@ -37,7 +39,10 @@ window.addEventListener("DOMContentLoaded", () => {
      } else {
        let float = `<p>.</p>`
        display.innerHTML += float;
-     }
+       if ((/[.]$/.test(display.textContent)) == true) {
+         point.disabled = "disabled";
+       }
+     }     
     })
   })
 });
