@@ -2,15 +2,19 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: black;
+}
+
 .calculator {
-  background-color: #03045E;
+  background-color: darkblue;
   max-width: 300px;
   min-width: 300px;
   min-height: 500px;
   max-height: 500px;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
+  text-align: end;
   border-radius: 25px;
   align-items: center;
 }
@@ -18,67 +22,103 @@
 .screen {
   border: 2px solid black;
   border-radius: 15px;
-  color: #0077B6;
-  background-color: green;
+  color: black;
+  background-color: white;
   width: 300px;
   display: inline-block;
-  margin-top: 50px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  padding-right: 20px;
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 
-.delete,
-.all-clear {
-  background-color: #00B4D8;
-  margin-top: 10px;
-  min-height: 50px;
-  min-width: 50px;
-}
 
 .delete {
-  margin-left: 204.92px;
+  grid-area: delete;
 }
 
 .all-clear {
-  margin-left: -10px;
+  grid-area: all-clear;
+}
+
+.percent {
+  grid-area: percent;
+}
+
+.square {
+  grid-area: square;
 }
 
 .numbers {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
+}
+
+.point {
+  grid-area: point;
+  border-radius: 0px 0px 0px 25px;
+}
+
+.equals {
+  grid-area: equals;
 }
 
 .zero {
   grid-area: zero;
-  border-radius: 0px 0px 0px 25px;
-}
-
-.subtract {
-  border-radius: 0px 0px 25px 0px;
 }
 
 .digit {
-  background-color: #90E0EF;
-  border-color: white;
+  background-color: #d62d20;
+  border-color: none;
+  font-size: 32px;
 }
 
 .button {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
-    ". . ."
-    ". . ."
-    ". . ."
-    "zero zero zero";
+    "percent square delete all-clear"
+    ". . . divide"
+    ". . . multiply"
+    ". . . subtract"
+    "point zero equals add";
+  grid-gap: 3px;
+  min-width: 300px;
+  max-width: 300px;
+  min-height: 353.5px;
 }
 
-.divide,
-.multiply,
-.add,
+.divide {
+  grid-area: divide;
+}
+
+.multiply {
+  grid-area: multiply;
+}
+
+.add {
+  grid-area: add;
+  border-radius: 0px 0px 25px 0px;
+}
+
 .subtract {
-  background-color: #CAF0F8;
-  min-height: 82px;
+  grid-area: subtract;
 }
 
 .operations {
   display: grid;
+}
+
+.add,
+.subtract,
+.divide,
+.multiply {
+  background-color: #0057e7;
+}
+
+.percent,
+.square,
+.delete,
+.all-clear {
+  background-color: #008744;
 }
