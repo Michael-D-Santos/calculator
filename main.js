@@ -24,12 +24,3 @@ function operate(x, firstTerm, secondTerm) {
     return Number((x).toFixed(length));
   }
 }
-
-let numbersClass = document.querySelector(".numbers");
-
-for (i = 0; i < 10; i++) {
-  let number = document.createElement("button");
-  number.innerHTML = `<p>${i}</p>`;
-  number.classList.add("button")
-  numbersClass.appendChild(number);
-}

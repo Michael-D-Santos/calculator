@@ -4,10 +4,10 @@
 
 .calculator {
   background-color: #03045E;
-  max-width: 400px;
-  min-width: 400px;
-  min-height: 600px;
-  max-height: 600px;
+  max-width: 300px;
+  min-width: 300px;
+  min-height: 500px;
+  max-height: 500px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -20,19 +20,55 @@
   border-radius: 15px;
   color: #0077B6;
   background-color: green;
-  width: 400px;
+  width: 300px;
   display: inline-block;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
 
 .delete,
 .all-clear {
   background-color: #00B4D8;
+  margin-top: 10px;
+  min-height: 50px;
+  min-width: 50px;
+}
+
+.delete {
+  margin-left: 204.92px;
+}
+
+.all-clear {
+  margin-left: -10px;
+}
+
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.zero {
+  grid-area: zero;
+  border-radius: 0px 0px 0px 25px;
+}
+
+.subtract {
+  border-radius: 0px 0px 25px 0px;
+}
+
+.digit {
+  background-color: #90E0EF;
+  border-color: white;
 }
 
 .button {
-  background-color: #90E0EF;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    ". . ."
+    ". . ."
+    ". . ."
+    "zero zero zero";
 }
 
 .divide,
@@ -40,14 +76,9 @@
 .add,
 .subtract {
   background-color: #CAF0F8;
+  min-height: 82px;
 }
 
-.delete,
-.all-clear,
-.button,
-.divide,
-.multiply,
-.add,
-.subtract {
-  border: none;
+.operations {
+  display: grid;
 }
