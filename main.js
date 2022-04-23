@@ -37,6 +37,8 @@ let subtract = document.querySelector(".operation.subtract");
 let evaluate = document.querySelector(".equals");
 let del = document.querySelector(".delete");
 let allclear = document.querySelector(".all-clear");
+let square = document.querySelector(".square");
+let percent = document.querySelector(".percent");
 
 digit.forEach(button => {
     button.addEventListener("click", function (e) {
@@ -130,3 +132,15 @@ allclear.addEventListener("click", () => {
   divide.disabled = false;
   point.disabled = false;
 });
+
+del.addEventListener("click", () => {
+  display.innerHTML = `<p>${display.textContent.slice(0, -1)}</p>`
+})
+
+square.addEventListener("click", () => {
+  display.innerHTML = `<p>${display.textContent ** 2}</p>`
+})
+
+percent.addEventListener("click", () => {
+  display.innerHTML = `<p>${display.textContent/100}</p>`
+})
