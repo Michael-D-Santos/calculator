@@ -24,3 +24,20 @@ function operate(x, firstTerm, secondTerm) {
     return Number((x).toFixed(length));
   }
 }
+
+let digit = document.querySelectorAll(".digit");
+let display = document.querySelector(".screen");
+
+window.addEventListener("DOMContentLoaded", () => {
+  digit.forEach(button => {
+    button.addEventListener("click", function (e) {
+     if ((/^[0-9]$/.test(e.target.textContent)) == true) {
+       let integer = `<p>${parseInt(e.target.textContent)}</p>`
+       display.innerHTML += integer;
+     } else {
+       let float = `<p>.</p>`
+       display.innerHTML += float;
+     }
+    })
+  })
+});

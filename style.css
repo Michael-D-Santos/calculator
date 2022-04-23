@@ -17,14 +17,21 @@ body {
   text-align: end;
   border-radius: 25px;
   align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .screen {
   border: 2px solid black;
+  align-items: center;
+  display: flex;
   border-radius: 15px;
   color: black;
   background-color: white;
-  width: 300px;
+  min-width: 300px;
+  max-width: 300px;
+  min-height: 106px;
+  max-height: 106px;
   display: inline-block;
   margin-top: 20px;
   padding-right: 20px;
@@ -32,6 +39,9 @@ body {
   margin-bottom: 20px;
 }
 
+.screen > p {
+  display: inline-block;
+}
 
 .delete {
   grid-area: delete;
@@ -57,10 +67,14 @@ body {
 .point {
   grid-area: point;
   border-radius: 0px 0px 0px 25px;
+  font-size: 32px;
+  background-color: #d62d20;
 }
 
 .equals {
   grid-area: equals;
+  background-color: #d62d20;
+  font-size: 32px;
 }
 
 .zero {
@@ -114,6 +128,7 @@ body {
 .divide,
 .multiply {
   background-color: #0057e7;
+  font-size: 32px;
 }
 
 .percent,
@@ -121,4 +136,5 @@ body {
 .delete,
 .all-clear {
   background-color: #008744;
+  font-size: 32px;
 }
