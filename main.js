@@ -35,9 +35,10 @@ let multiply = document.querySelector(".operation.multiply");
 let add = document.querySelector(".operation.add");
 let subtract = document.querySelector(".operation.subtract");
 let evaluate = document.querySelector(".equals");
+let del = document.querySelector(".delete");
+let allclear = document.querySelector(".all-clear");
 
-window.addEventListener("DOMContentLoaded", () => {
-  digit.forEach(button => {
+digit.forEach(button => {
     button.addEventListener("click", function (e) {
      if ((/^[0-9]$/.test(e.target.textContent)) == true) {
        let integer = `<p>${parseInt(e.target.textContent)}</p>`
@@ -59,10 +60,8 @@ window.addEventListener("DOMContentLoaded", () => {
      }     
     })
   })
-});
 
-window.addEventListener("DOMContentLoaded", () => {
-  operation.forEach(button => {
+operation.forEach(button => {
     button.addEventListener("click", function (e) {
       if (display.textContent == "") {
         display.innerHTML = "<p>0</p>";
@@ -74,25 +73,28 @@ window.addEventListener("DOMContentLoaded", () => {
         subtract.disabled = "disabled";
         multiply.disabled = "disabled";
         divide.disabled = "disabled";
+        point.disabled = false;
       } else if (e.target.classList[1] == "subtract") {
         add.disabled = "disabled";
         subtract.disabled = "disabled";
         multiply.disabled = "disabled";
         divide.disabled = "disabled";
+        point.disabled = false;
       } else if (e.target.classList[1] == "multiply") {
         add.disabled = "disabled";
         subtract.disabled = "disabled";
         multiply.disabled = "disabled";
         divide.disabled = "disabled";
+        point.disabled = false;
       } else if (e.target.classList[1] == "divide") {
         add.disabled = "disabled";
         subtract.disabled = "disabled";
         multiply.disabled = "disabled";
         divide.disabled = "disabled";
+        point.disabled = false;
       }
     })
   })
-})
 
 evaluate.addEventListener("click", () => {
   if (display.textContent.match(/(\+|x|÷|-)/)[0] == "+") {
@@ -113,4 +115,18 @@ evaluate.addEventListener("click", () => {
     let divisor = display.textContent.match(/(-|\+|÷|x)(.*)/)[2];
     display.innerHTML = `<p>${parseFloat(dividend)/parseFloat(divisor)}</p>`
   }
+
+  add.disabled = false;
+  subtract.disabled = false;
+  multiply.disabled = false;
+  divide.disabled = false;
+});
+
+allclear.addEventListener("click", () => {
+  display.innerHTML = "";
+  add.disabled = false;
+  subtract.disabled = false;
+  multiply.disabled = false;
+  divide.disabled = false;
+  point.disabled = false;
 });
