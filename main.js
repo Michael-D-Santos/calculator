@@ -18,10 +18,10 @@ function operate(x, firstTerm, secondTerm) {
 
   if (firstTerm.toString().length > secondTerm.toString().length) {
     let length = firstTerm.toString().length;
-    return Number((x).toFixed(length));
+    return Number((parseFloat(x)).toFixed(length));
   } else {
     let length = secondTerm.toString().length;
-    return Number((x).toFixed(length));
+    return Number((parseFloat(x)).toFixed(length));
   }
 }
 
@@ -98,39 +98,38 @@ operation.forEach(button => {
     })
   })
 
+
 evaluate.addEventListener("click", () => {
-  if (display.textContent.match(/(\+|x|÷|-)/)[0] == "+") {
-    let augend = display.textContent.match(/[^(+|x|÷|\-)]*/)[0];
-    let addend = display.textContent.match(/(-|\+|÷|x)(.*)/)[2];
-    display.innerHTML = `<p>${parseFloat(augend) + parseFloat(addend)}</p>`;
-  } else if (display.textContent.match(/(\+|x|÷|-)/)[0] == "x") {
-    let multiplier = display.textContent.match(/[^(+|x|÷|\-)]*/)[0];
-    let multiplicand = display.textContent.match(/(-|\+|÷|x)(.*)/)[2];
-    display.innerHTML = `<p>${parseFloat(multiplier) * 
-      parseFloat(multiplicand)}</p>`;
-  } else if (display.textContent.match(/(\+|x|÷|-)/)[0] == "-") {
-    let minuend = display.textContent.match(/[^(+|x|÷|\-)]*/)[0];
-    let subtrahend = display.textContent.match(/(-|\+|÷|x)(.*)/)[2];
-    display.innerHTML = `<p>${parseFloat(minuend) - parseFloat(subtrahend)}</p>`;
-  } else if (display.textContent.match(/(\+|x|÷|-)/)[0] == "÷") {
-    let dividend = display.textContent.match(/[^(+|x|÷|\-)]*/)[0];
-    let divisor = display.textContent.match(/(-|\+|÷|x)(.*)/)[2];
-    display.innerHTML = `<p>${parseFloat(dividend)/parseFloat(divisor)}</p>`
+  let firstPart = parseFloat(display.textContent.match(/[^(+|x|÷|\-)]*/)[0]);
+  let secondPart = parseFloat(display.textContent.match(/(-|\+|÷|x)(.*)/)[2]);
+
+  switch(display.textContent.match(/(\+|x|÷|-)/)[0]) {
+    case "+":
+      display.innerHTML = `<p>${operate("add", firstPart, secondPart)}</p>`;
+      break;
+    case "x":
+      display.innerHTML = `<p>${operate("multiply", firstPart, 
+      secondPart)}</p>`;
+      break;
+    case "-":
+      display.innerHTML = `<p>${operate("subtract", firstPart, 
+      secondPart)}</p>`;
+      break;
+    case "÷":
+      display.innerHTML = `<p>${operate("divide", firstPart, secondPart)}</p>`;
+      break;
+    default:
+      display.innerHTML = "";
   }
 
-  add.disabled = false;
-  subtract.disabled = false;
-  multiply.disabled = false;
-  divide.disabled = false;
+  [add.disabled, subtract.disabled, multiply.disabled, divide.disabled] =
+  [false, false, false, false];
 });
 
 allclear.addEventListener("click", () => {
   display.innerHTML = "";
-  add.disabled = false;
-  subtract.disabled = false;
-  multiply.disabled = false;
-  divide.disabled = false;
-  point.disabled = false;
+  [add.disabled, subtract.disabled, multiply.disabled, divide.disabled] =
+  [false, false, false, false];
 });
 
 del.addEventListener("click", () => {
@@ -144,3 +143,4 @@ square.addEventListener("click", () => {
 percent.addEventListener("click", () => {
   display.innerHTML = `<p>${display.textContent/100}</p>`
 })
+
