@@ -80,7 +80,7 @@ body {
 
 .button {
   display: grid;
-  grid-column: 1 / span 4;
+  grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
     "percent square delete all-clear"
     ". . . divide"
@@ -121,6 +121,7 @@ body {
 .multiply {
   background-color: #0057e7;
   font-size: 64px;
+  padding-top: 15.5px;
 }
 
 .percent,
