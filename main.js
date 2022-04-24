@@ -104,7 +104,7 @@ evaluate.addEventListener("click", () => {
 });
 
 allclear.addEventListener("click", () => {
-  display.innerHTML = "";
+  display.innerHTML = "<p></p>";
   [add.disabled, subtract.disabled, multiply.disabled, divide.disabled,
   point.disabled] = [false, false, false, false, false];
 });

@@ -2,8 +2,14 @@
   box-sizing: border-box;
 }
 
+html {
+  max-width: 500px;
+  margin: auto;
+}
+
 body {
   background-color: black;
+  max-width: 500px;
 }
 
 .calculator {
