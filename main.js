@@ -49,12 +49,12 @@ digit.forEach(button => {
       if (display.textContent == "") {
         display.innerHTML = "<p>0</p>";
       }
-       let float = `<p>.</p>`
-       display.innerHTML += float;
-       if ((/[.]$/.test(display.textContent)) == true) {
+      let float = `<p>.</p>`
+      display.innerHTML += float;
+      if ((/[.]$/.test(display.textContent)) == true) {
          point.disabled = "disabled";
-       }
-       if ((/(\+|x|÷|-)[.]/.test(display.textContent)) == true) {
+      }
+      if ((/(\+|x|÷|-)[.]/.test(display.textContent)) == true) {
         let position = (/(\+|x|÷|-)[.]/.exec(display.textContent).index) + 1;
         display.innerHTML = `<p>${[display.textContent.slice(0, position), "0",
         display.textContent.slice(-1)].join("")}`;
