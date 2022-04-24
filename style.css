@@ -88,11 +88,11 @@ body {
     ". . . subtract"
     "point zero equals add";
   grid-gap: 3px;
-  max-width: 100%;
+  max-width: 300px;
+  min-width: 300px;
   margin: auto;
   min-height: 353.5px;
   overflow: auto;
-  resize: horizontal;
 }
 
 .divide {
