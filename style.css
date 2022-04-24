@@ -17,8 +17,6 @@ body {
   text-align: end;
   border-radius: 25px;
   align-items: center;
-  display: flex;
-  flex-direction: column;
 }
 
 .screen {
