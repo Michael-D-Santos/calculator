@@ -55,11 +55,6 @@ body {
   grid-area: square;
 }
 
-.numbers {
-  display: flex;
-  flex: 1;
-}
-
 .point {
   grid-area: point;
   border-radius: 0px 0px 0px 25px;
@@ -96,6 +91,7 @@ body {
   max-width: 100%;
   margin: auto;
   min-height: 353.5px;
+  overflow: hidden;
 }
 
 .divide {
