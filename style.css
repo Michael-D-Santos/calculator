@@ -80,7 +80,7 @@ body {
 
 .button {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-column: 1 / span 4;
   grid-template-areas:
     "percent square delete all-clear"
     ". . . divide"
@@ -111,7 +111,7 @@ body {
   grid-area: subtract;
 }
 
-.operations {
+.operation {
   display: grid;
 }
 
