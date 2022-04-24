@@ -65,39 +65,16 @@ digit.forEach(button => {
 
 operation.forEach(button => {
     button.addEventListener("click", function (e) {
-      if (display.textContent == "") {
-        display.innerHTML = "<p>0</p>";
-      }
       let operation = `<p>${e.target.textContent}</p>`;
       display.innerHTML += operation;
-      if (e.target.classList[1] == "add") {
-        add.disabled = "disabled";
-        subtract.disabled = "disabled";
-        multiply.disabled = "disabled";
-        divide.disabled = "disabled";
-        point.disabled = false;
-      } else if (e.target.classList[1] == "subtract") {
-        add.disabled = "disabled";
-        subtract.disabled = "disabled";
-        multiply.disabled = "disabled";
-        divide.disabled = "disabled";
-        point.disabled = false;
-      } else if (e.target.classList[1] == "multiply") {
-        add.disabled = "disabled";
-        subtract.disabled = "disabled";
-        multiply.disabled = "disabled";
-        divide.disabled = "disabled";
-        point.disabled = false;
-      } else if (e.target.classList[1] == "divide") {
-        add.disabled = "disabled";
-        subtract.disabled = "disabled";
-        multiply.disabled = "disabled";
-        divide.disabled = "disabled";
-        point.disabled = false;
-      }
+
+      if (e.target.classList[0] == "operation") {
+        [add.disabled, subtract.disabled, multiply.disabled, divide.disabled,
+          point.disabled] = ["disabled", "disabled", "disabled", "disabled", 
+          false];
+      } 
     })
   })
-
 
 evaluate.addEventListener("click", () => {
   let firstPart = parseFloat(display.textContent.match(/[^(+|x|÷|\-)]*/)[0]);
@@ -128,19 +105,18 @@ evaluate.addEventListener("click", () => {
 
 allclear.addEventListener("click", () => {
   display.innerHTML = "";
-  [add.disabled, subtract.disabled, multiply.disabled, divide.disabled] =
-  [false, false, false, false];
+  [add.disabled, subtract.disabled, multiply.disabled, divide.disabled,
+  point.disabled] = [false, false, false, false, false];
 });
 
 del.addEventListener("click", () => {
-  display.innerHTML = `<p>${display.textContent.slice(0, -1)}</p>`
+  display.innerHTML = `<p>${display.textContent.slice(0, -1)}</p>`;
 })
 
 square.addEventListener("click", () => {
-  display.innerHTML = `<p>${display.textContent ** 2}</p>`
+  display.innerHTML = `<p>${display.textContent ** 2}</p>`;
 })
 
 percent.addEventListener("click", () => {
-  display.innerHTML = `<p>${display.textContent/100}</p>`
+  display.innerHTML = `<p>${display.textContent/100}</p>`;
 })
-

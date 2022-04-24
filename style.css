@@ -7,7 +7,7 @@ body {
 }
 
 .calculator {
-  background-color: darkblue;
+  background-color: darkgray;
   max-width: 300px;
   min-width: 300px;
   min-height: 500px;
@@ -23,8 +23,6 @@ body {
 
 .screen {
   border: 2px solid black;
-  align-items: center;
-  display: flex;
   border-radius: 15px;
   color: black;
   background-color: white;
