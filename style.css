@@ -140,18 +140,3 @@ body {
 .equals {
   color: black;
 }
-
-.zero.digit,
-.equals,
-.point.digit,
-.digit,
-.square,
-.percent,
-.operation.subtract,
-.all-clear,
-.delete,
-.operation.add,
-.operation.multiply,
-.operation.divide {
-  max-width: 100%;
-}
