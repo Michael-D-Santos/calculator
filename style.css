@@ -141,3 +141,9 @@ body {
 .equals {
   color: black;
 }
+
+@media only screen and (max-width: 828px) {
+    .button {
+      max-width: 200px;
+    }
+}
