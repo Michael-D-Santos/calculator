@@ -86,8 +86,7 @@ body {
 }
 
 .button {
-  display: flex;
-  flex: 1;
+  display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
     "percent square delete all-clear"
@@ -96,7 +95,7 @@ body {
     ". . . subtract"
     "point zero equals add";
   grid-gap: 3px;
-  min-width: 100%;
+  min-width: auto;
   max-width: 100%;
   min-height: 353.5px;
 }
@@ -146,9 +145,4 @@ body {
 .digit,
 .equals {
   color: black;
-}
-
-.keypad {
-  display: flex;
-  flex: 1;
 }
