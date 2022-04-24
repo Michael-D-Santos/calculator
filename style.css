@@ -93,7 +93,8 @@ body {
     ". . . subtract"
     "point zero equals add";
   grid-gap: 3px;
-  max-width: 100%;
+  min-width: 300px;
+  max-width: 300px;
   min-height: 353.5px;
 }
 
