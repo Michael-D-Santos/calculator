@@ -7,19 +7,20 @@ body {
 }
 
 .calculator {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   background-color: darkgray;
   max-width: 500px;
   min-width: 500px;
   min-height: 852px;
   max-height: 852px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: end;
+  margin: auto;
   border-radius: 25px;
-  align-items: center;
 }
 
 .screen {
+  text-align: end;
   border: 2px solid black;
   border-radius: 15px;
   color: black;
@@ -35,84 +36,38 @@ body {
   margin-bottom: 20px;
 }
 
-.screen > p {
+.screen>p {
   display: inline-block;
-}
-
-.delete {
-  grid-area: delete;
-}
-
-.all-clear {
-  grid-area: all-clear;
-}
-
-.percent {
-  grid-area: percent;
-}
-
-.square {
-  grid-area: square;
-}
-
-.point {
-  grid-area: point;
-  border-radius: 0px 0px 0px 25px;
-  font-size: 64px;
-  background-color: #d62d20;
-}
-
-.equals {
-  grid-area: equals;
-  background-color: #d62d20;
-  font-size: 64px;
-}
-
-.zero {
-  grid-area: zero;
 }
 
 .digit {
   background-color: #d62d20;
   border-color: none;
   font-size: 64px;
+  justify-content: center;
+  align-items: center;
 }
 
 .button {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-areas:
-    "percent square delete all-clear"
-    ". . . divide"
-    ". . . multiply"
-    ". . . subtract"
-    "point zero equals add";
-  grid-gap: 3px;
+  display: flex;
+  flex: 1;
   max-width: 100%;
-  margin: auto;
-  min-height: 600px;
   overflow: auto;
 }
 
-.divide {
-  grid-area: divide;
-}
-
-.multiply {
-  grid-area: multiply;
+button {
+  min-width: 100%;
+  justify-content: flex-start;
+  text-align: center;
 }
 
 .add {
-  grid-area: add;
   border-radius: 0px 0px 25px 0px;
 }
 
-.subtract {
-  grid-area: subtract;
-}
 
-.operation {
-  display: grid;
+.point {
+  border-radius: 0px 0px 0px 25px;
 }
 
 .add,
@@ -121,7 +76,10 @@ body {
 .multiply {
   background-color: #0057e7;
   font-size: 64px;
-  padding-top: 15.5px;
+  min-width: 90px;
+  max-height: 40px;
+  justify-content: center;
+  align-items: center;
 }
 
 .percent,
@@ -130,6 +88,16 @@ body {
 .all-clear {
   background-color: #008744;
   font-size: 64px;
+  justify-content: center;
+  min-width: 124.2px;
+  flex: 1;
+}
+
+
+.equals {
+  background-color: #d62d20;
+  font-size: 64px;
+  justify-content: center;
 }
 
 .operation,
@@ -140,4 +108,15 @@ body {
 .digit,
 .equals {
   color: black;
+}
+
+
+
+.operations {
+  align-self: flex-end;
+
+}
+
+.col {
+  max-width: 200px;
 }
