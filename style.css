@@ -89,6 +89,7 @@ button {
   font-size: 64px;
   justify-content: center;
   align-items: center;
+  min-width: 140px;
 }
 
 .operation,
@@ -120,15 +121,30 @@ button {
 .multiply {
   background-color: #0057e7;
   font-size: 64px;
-  min-width: 104px;
+  min-width: 105px;
   max-width: 170px;
   max-height: 100px;
   justify-content: center;
   align-items: center;
 }
 
+.col.number.three {
+  min-width: 14px;
+}
+
 .nine,
 .six,
 .three {
   min-width: 140px;
+}
+
+@media only screen and (max-width: 414px) {
+  .digit {
+    background-color: #d62d20;
+    border-color: none;
+    font-size: 64px;
+    justify-content: center;
+    align-items: center;
+    min-width: 75px;
+  }
 }
