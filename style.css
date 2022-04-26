@@ -16,6 +16,7 @@ body {
   min-height: 852px;
   max-height: 852px;
   margin: auto;
+  justify-content: space-around;
   border-radius: 25px;
 }
 
@@ -36,7 +37,7 @@ body {
   margin-bottom: 20px;
 }
 
-.screen>p {
+.screen > p {
   display: inline-block;
 }
 
@@ -46,40 +47,29 @@ body {
   font-size: 64px;
   justify-content: center;
   align-items: center;
+  min-width: 125px;
 }
 
 .button {
   display: flex;
   flex: 1;
   max-width: 100%;
+  min-height: 20%;
   overflow: auto;
 }
 
 button {
   min-width: 100%;
   justify-content: flex-start;
-  text-align: center;
+  text-align: center;  
 }
 
 .add {
   border-radius: 0px 0px 25px 0px;
 }
 
-
 .point {
   border-radius: 0px 0px 0px 25px;
-}
-
-.add,
-.subtract,
-.divide,
-.multiply {
-  background-color: #0057e7;
-  font-size: 64px;
-  min-width: 90px;
-  max-height: 40px;
-  justify-content: center;
-  align-items: center;
 }
 
 .percent,
@@ -89,7 +79,7 @@ button {
   background-color: #008744;
   font-size: 64px;
   justify-content: center;
-  min-width: 124.2px;
+  align-items: center;
   flex: 1;
 }
 
@@ -98,6 +88,7 @@ button {
   background-color: #d62d20;
   font-size: 64px;
   justify-content: center;
+  align-items: center;
 }
 
 .operation,
@@ -110,13 +101,34 @@ button {
   color: black;
 }
 
-
-
 .operations {
   align-self: flex-end;
-
 }
 
-.col {
-  max-width: 200px;
+.col  {
+  max-height: 100%;
+  min-height: 600px;
+}
+
+.col.number.one {
+  min-width: 100px;
+}
+
+.add,
+.subtract,
+.divide,
+.multiply {
+  background-color: #0057e7;
+  font-size: 64px;
+  min-width: 104px;
+  max-width: 170px;
+  max-height: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.nine,
+.six,
+.three {
+  min-width: 140px;
 }
