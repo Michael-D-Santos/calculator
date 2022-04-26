@@ -138,13 +138,16 @@ button {
   min-width: 140px;
 }
 
-@media only screen and (max-width: 414px) {
-  .digit {
-    background-color: #d62d20;
-    border-color: none;
+@media only screen and (max-width: 828px) {
+  .percent,
+  .square,
+  .delete,
+  .all-clear {
+    background-color: #008744;
     font-size: 64px;
     justify-content: center;
     align-items: center;
+    flex: 1;
     min-width: 75px;
   }
 }
