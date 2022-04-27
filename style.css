@@ -7,21 +7,19 @@ body {
 }
 
 .calculator {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
   background-color: darkgray;
   max-width: 500px;
   min-width: 500px;
   min-height: 852px;
   max-height: 852px;
-  margin: auto;
-  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: end;
   border-radius: 25px;
+  align-items: center;
 }
 
 .screen {
-  text-align: end;
   border: 2px solid black;
   border-radius: 15px;
   color: black;
@@ -41,35 +39,89 @@ body {
   display: inline-block;
 }
 
+.delete {
+  grid-area: delete;
+}
+
+.all-clear {
+  grid-area: all-clear;
+}
+
+.percent {
+  grid-area: percent;
+}
+
+.square {
+  grid-area: square;
+}
+
+.point {
+  grid-area: point;
+  border-radius: 0px 0px 0px 25px;
+  font-size: 64px;
+  background-color: #d62d20;
+}
+
+.equals {
+  grid-area: equals;
+  background-color: #d62d20;
+  font-size: 64px;
+}
+
+.zero {
+  grid-area: zero;
+}
+
 .digit {
   background-color: #d62d20;
   border-color: none;
   font-size: 64px;
-  justify-content: center;
-  align-items: center;
-  min-width: 125px;
 }
 
 .button {
-  display: flex;
-  flex: 1;
+  display: grid;
+  grid-column: 1 / span 4;
+  grid-template-areas:
+    "percent square delete all-clear"
+    ". . . divide"
+    ". . . multiply"
+    ". . . subtract"
+    "point zero equals add";
+  grid-gap: 3px;
   max-width: 100%;
-  min-height: 20%;
+  margin: auto;
+  min-height: 600px;
   overflow: auto;
 }
 
-button {
-  min-width: 100%;
-  justify-content: flex-start;
-  text-align: center;  
+.divide {
+  grid-area: divide;
+}
+
+.multiply {
+  grid-area: multiply;
 }
 
 .add {
+  grid-area: add;
   border-radius: 0px 0px 25px 0px;
 }
 
-.point {
-  border-radius: 0px 0px 0px 25px;
+.subtract {
+  grid-area: subtract;
+}
+
+.operation {
+  display: grid;
+}
+
+.add,
+.subtract,
+.divide,
+.multiply {
+  background-color: #0057e7;
+  font-size: 64px;
+  align-items: center;
 }
 
 .percent,
@@ -78,18 +130,6 @@ button {
 .all-clear {
   background-color: #008744;
   font-size: 64px;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-}
-
-
-.equals {
-  background-color: #d62d20;
-  font-size: 64px;
-  justify-content: center;
-  align-items: center;
-  min-width: 140px;
 }
 
 .operation,
@@ -100,54 +140,4 @@ button {
 .digit,
 .equals {
   color: black;
-}
-
-.operations {
-  align-self: flex-end;
-}
-
-.col  {
-  max-height: 100%;
-  min-height: 600px;
-}
-
-.col.number.one {
-  min-width: 100px;
-}
-
-.add,
-.subtract,
-.divide,
-.multiply {
-  background-color: #0057e7;
-  font-size: 64px;
-  min-width: 105px;
-  max-width: 170px;
-  max-height: 100px;
-  justify-content: center;
-  align-items: center;
-}
-
-.col.number.three {
-  min-width: 14px;
-}
-
-.nine,
-.six,
-.three {
-  min-width: 140px;
-}
-
-@media only screen and (max-width: 828px) {
-  .percent,
-  .square,
-  .delete,
-  .all-clear {
-    background-color: #008744;
-    font-size: 64px;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    min-width: 75px;
-  }
 }
