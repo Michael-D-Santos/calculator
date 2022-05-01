@@ -78,11 +78,16 @@ operation.forEach(button => {
 
 evaluate.addEventListener("click", () => {
   let firstPart = parseFloat(display.textContent.match(/[^(+|x|÷|\-)]*/)[0]);
+
+  if (isNaN(firstPart)) {
+    firstPart = 0;
+  };
+
   let secondPart = parseFloat(display.textContent.match(/(-|\+|÷|x)(.*)/)[2]);
 
   if (isNaN(secondPart)) {
     return;
-  }
+  };
 
   switch(display.textContent.match(/(\+|x|÷|-)/)[0]) {
     case "+":
