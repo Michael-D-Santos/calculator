@@ -14,7 +14,7 @@ function operate(x, firstTerm, secondTerm) {
       break;
     default:
       return "ERROR: OPERATION NOT VALID";
-  }
+  };
 
   if (firstTerm.toString().length > secondTerm.toString().length) {
     let length = firstTerm.toString().length;
@@ -22,8 +22,8 @@ function operate(x, firstTerm, secondTerm) {
   } else {
     let length = secondTerm.toString().length;
     return Number((parseFloat(x)).toFixed(length));
-  }
-}
+  };
+};
 
 let digit = document.querySelectorAll(".digit");
 let display = document.querySelector(".screen");
@@ -48,20 +48,20 @@ digit.forEach(button => {
      } else {
       if (display.textContent == "") {
         display.innerHTML = "<p>0</p>";
-      }
+      };
       let float = `<p>.</p>`
       display.innerHTML += float;
       if ((/[.]$/.test(display.textContent)) == true) {
          point.disabled = "disabled";
-      }
+      };
       if ((/(\+|x|÷|-)[.]/.test(display.textContent)) == true) {
         let position = (/(\+|x|÷|-)[.]/.exec(display.textContent).index) + 1;
         display.innerHTML = `<p>${[display.textContent.slice(0, position), "0",
         display.textContent.slice(-1)].join("")}`;
-      }
-     }     
-    })
-  })
+      };
+     };     
+    });
+  });
 
 operation.forEach(button => {
     button.addEventListener("click", function (e) {
@@ -72,13 +72,17 @@ operation.forEach(button => {
         [add.disabled, subtract.disabled, multiply.disabled, divide.disabled,
           point.disabled] = ["disabled", "disabled", "disabled", "disabled", 
           false];
-      } 
-    })
-  })
+      }; 
+    });
+  });
 
 evaluate.addEventListener("click", () => {
   let firstPart = parseFloat(display.textContent.match(/[^(+|x|÷|\-)]*/)[0]);
   let secondPart = parseFloat(display.textContent.match(/(-|\+|÷|x)(.*)/)[2]);
+
+  if (isNaN(secondPart)) {
+    return;
+  }
 
   switch(display.textContent.match(/(\+|x|÷|-)/)[0]) {
     case "+":
@@ -93,11 +97,15 @@ evaluate.addEventListener("click", () => {
       secondPart)}</p>`;
       break;
     case "÷":
+      if (secondPart == "0") {
+        display.innerHTML = `<p>get out!</p>`;
+        break;
+      };
       display.innerHTML = `<p>${operate("divide", firstPart, secondPart)}</p>`;
       break;
     default:
       display.innerHTML = "";
-  }
+  };
 
   [add.disabled, subtract.disabled, multiply.disabled, divide.disabled] =
   [false, false, false, false];
@@ -111,12 +119,24 @@ allclear.addEventListener("click", () => {
 
 del.addEventListener("click", () => {
   display.innerHTML = `<p>${display.textContent.slice(0, -1)}</p>`;
-})
+});
 
 square.addEventListener("click", () => {
-  display.innerHTML = `<p>${display.textContent ** 2}</p>`;
-})
+  let operations = parseFloat(display.textContent.match(/^[0-9]*$/));
+  
+  if (isNaN(operations)) {
+    return display.innerHTML;
+  } else {
+    display.innerHTML = `<p>${display.textContent ** 2}</p>`;
+  };
+});
 
 percent.addEventListener("click", () => {
-  display.innerHTML = `<p>${display.textContent/100}</p>`;
-})
+  let operations = parseFloat(display.textContent.match(/^[0-9]*$/));
+
+  if (isNaN(operations)) {
+    return display.innerHTML;
+  } else {
+    display.innerHTML = `<p>${display.textContent/100}</p>`;
+  };
+});
